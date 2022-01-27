@@ -1,0 +1,17 @@
+name: melos
+
+package:
+  - '*'
+
+scripts:
+  pub_get_all:
+    run: pub global run melos exec --fail-fast --flutter "flutter pub get"
+    description: Get all dependecies as specified in package pub spec files.
+
+  gen_build_all:
+    run: pub global run melos exec --fail-fast --depends-on="build_runner" --flutter --"flutter packages pub run build_runner build --delete-conflicting-outputs"
+    description: Generate all the required source code required for the appliaction.
+
+  gen_watch_all:
+    run: pub global run melos exec --fail-fast --depends-on="build_runner" --flutter --"flutter packages pub run build_runner watch --delete-conflicting-outputs"
+    description: Generate and watch all the required source code required for the appliaction.
